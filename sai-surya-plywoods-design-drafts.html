@@ -1,0 +1,726 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sai Surya Plywoods - Design Drafts</title>
+  <style>
+    :root {
+      --ink: #1f2520;
+      --muted: #667064;
+      --paper: #f7f3ea;
+      --cream: #fffaf0;
+      --green: #163b31;
+      --red: #d81712;
+      --blue: #103a8a;
+      --gold: #c99435;
+      --line: rgba(31, 37, 32, 0.14);
+      --shadow: 0 24px 70px rgba(20, 24, 20, 0.16);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background:
+        linear-gradient(120deg, rgba(22, 59, 49, 0.08), transparent 36%),
+        linear-gradient(270deg, rgba(216, 23, 18, 0.06), transparent 42%),
+        #eee9df;
+    }
+
+    .board-header {
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 34px 24px 20px;
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue);
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--red);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(36px, 5vw, 66px);
+      line-height: 0.96;
+      letter-spacing: 0;
+    }
+
+    .board-header p {
+      max-width: 760px;
+      margin: 14px 0 0;
+      color: #3d453c;
+      font-size: 17px;
+      line-height: 1.6;
+    }
+
+    .meta-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .meta-strip span {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 250, 240, 0.8);
+      padding: 8px 12px;
+      color: #2d342d;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .draft-grid {
+      display: grid;
+      gap: 34px;
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 18px 24px 56px;
+    }
+
+    .draft {
+      overflow: hidden;
+      border: 1px solid rgba(31, 37, 32, 0.16);
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .draft-label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 14px 18px;
+      background: #1f2520;
+      color: white;
+    }
+
+    .draft-label strong {
+      font-size: 14px;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .draft-label span {
+      color: rgba(255, 255, 255, 0.76);
+      font-size: 13px;
+    }
+
+    .site {
+      min-height: 760px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 20px 34px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      color: var(--red);
+      text-transform: uppercase;
+    }
+
+    .mark {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      border: 2px solid currentColor;
+      border-radius: 50%;
+      font-family: Georgia, serif;
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    .links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: inherit;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      border: 0;
+      border-radius: 4px;
+      padding: 12px 18px;
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn.secondary {
+      border: 1px solid currentColor;
+      background: transparent;
+      color: inherit;
+    }
+
+    .wood-stack {
+      min-height: 390px;
+      background:
+        linear-gradient(90deg, rgba(0, 0, 0, 0.16), transparent 40%),
+        repeating-linear-gradient(0deg, #d6a05c 0 22px, #bd7836 22px 27px, #e1b26f 27px 52px, #7a4a25 52px 56px);
+      border-radius: 5px;
+    }
+
+    .sample-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .sample {
+      min-height: 120px;
+      border-radius: 5px;
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      background: #d8a763;
+    }
+
+    .sample:nth-child(1) { background: linear-gradient(135deg, #c48a48, #f2cd91); }
+    .sample:nth-child(2) { background: repeating-linear-gradient(45deg, #efe9df 0 16px, #d5c7b2 16px 30px); }
+    .sample:nth-child(3) { background: linear-gradient(135deg, #5f2f1c, #b67338); }
+    .sample:nth-child(4) { background: repeating-linear-gradient(0deg, #6d4529 0 12px, #996137 12px 24px); }
+    .sample:nth-child(5) { background: linear-gradient(135deg, #efefea, #b8b8ac); }
+    .sample:nth-child(6) { background: linear-gradient(135deg, #233e36, #8fa891); }
+
+    .draft-one {
+      background: var(--cream);
+    }
+
+    .draft-one .nav {
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 250, 240, 0.92);
+    }
+
+    .draft-one .hero {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 34px;
+      padding: 52px 42px 36px;
+      align-items: center;
+    }
+
+    .draft-one h2,
+    .draft-two h2,
+    .draft-three h2 {
+      margin: 0;
+      font-size: clamp(38px, 6vw, 72px);
+      line-height: 0.98;
+      letter-spacing: 0;
+    }
+
+    .draft-one h2 {
+      color: #173b31;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .draft-one .hero p,
+    .draft-two .hero p,
+    .draft-three .hero p {
+      max-width: 560px;
+      color: #475044;
+      font-size: 17px;
+      line-height: 1.62;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .product-strip {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 1px;
+      margin: 0 42px 38px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--line);
+    }
+
+    .product-strip div {
+      min-height: 78px;
+      background: white;
+      padding: 14px;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .info-band {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: #173b31;
+      color: white;
+    }
+
+    .info-band div {
+      min-height: 108px;
+      padding: 24px;
+      border-right: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .info-band strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 20px;
+    }
+
+    .info-band span {
+      color: rgba(255, 255, 255, 0.76);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .draft-two {
+      background: #fbf8f1;
+    }
+
+    .draft-two .nav {
+      background: #302117;
+      color: #fff;
+    }
+
+    .draft-two .brand {
+      color: #f6d08c;
+    }
+
+    .draft-two .hero {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 36px;
+      padding: 58px 42px 34px;
+      align-items: center;
+    }
+
+    .draft-two h2 {
+      color: #302117;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .draft-two .gallery-wrap {
+      padding: 28px;
+      background: #fff;
+      border: 1px solid rgba(48, 33, 23, 0.12);
+      border-radius: 8px;
+    }
+
+    .use-cases {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      padding: 10px 42px 42px;
+    }
+
+    .case-card {
+      min-height: 140px;
+      border-radius: 7px;
+      padding: 18px;
+      color: white;
+      background:
+        linear-gradient(180deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.55)),
+        repeating-linear-gradient(90deg, #84512c 0 16px, #b87a3f 16px 35px);
+      display: flex;
+      align-items: flex-end;
+      font-weight: 800;
+    }
+
+    .case-card:nth-child(2) {
+      background:
+        linear-gradient(180deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.55)),
+        linear-gradient(135deg, #173b31, #adc0a4);
+    }
+
+    .case-card:nth-child(3) {
+      background:
+        linear-gradient(180deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.55)),
+        repeating-linear-gradient(45deg, #f0e5d1 0 22px, #b78d57 22px 40px);
+    }
+
+    .case-card:nth-child(4) {
+      background:
+        linear-gradient(180deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.55)),
+        linear-gradient(135deg, #57301e, #c59656);
+    }
+
+    .advisor {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 26px;
+      padding: 34px 42px 46px;
+      background: #302117;
+      color: white;
+    }
+
+    .advisor h3,
+    .contact-panel h3 {
+      margin: 0 0 10px;
+      font-size: 28px;
+      letter-spacing: 0;
+    }
+
+    .advisor p,
+    .contact-panel p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.74);
+      line-height: 1.6;
+    }
+
+    .draft-three {
+      background: #fffdf6;
+    }
+
+    .draft-three .nav {
+      background: #f3e7ca;
+      color: #1c2521;
+    }
+
+    .draft-three .hero {
+      display: grid;
+      grid-template-columns: 1fr 0.85fr;
+      gap: 34px;
+      padding: 50px 42px;
+      align-items: center;
+      background:
+        linear-gradient(130deg, rgba(216, 23, 18, 0.09), transparent 42%),
+        #fffdf6;
+    }
+
+    .draft-three h2 {
+      color: var(--red);
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .quick-card {
+      border: 2px solid #1f2520;
+      border-radius: 8px;
+      background: #fff;
+      padding: 26px;
+    }
+
+    .quick-card h3 {
+      margin: 0 0 16px;
+      font-size: 24px;
+    }
+
+    .quick-card div {
+      border-top: 1px solid var(--line);
+      padding: 13px 0;
+      color: #3d453c;
+      font-weight: 700;
+    }
+
+    .order-flow {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      padding: 0 42px 42px;
+    }
+
+    .step {
+      min-height: 170px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: white;
+      padding: 22px;
+    }
+
+    .step b {
+      display: inline-grid;
+      width: 38px;
+      height: 38px;
+      place-items: center;
+      margin-bottom: 18px;
+      border-radius: 50%;
+      background: var(--red);
+      color: white;
+    }
+
+    .step strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 20px;
+    }
+
+    .step span {
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .contact-panel {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 20px;
+      padding: 32px 42px;
+      background: #173b31;
+      color: white;
+    }
+
+    .map-box {
+      min-height: 190px;
+      border-radius: 8px;
+      background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.42) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(255, 255, 255, 0.42) 1px, transparent 1px),
+        #b6cabe;
+      background-size: 34px 34px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .map-box::after {
+      content: "";
+      position: absolute;
+      width: 28px;
+      height: 28px;
+      left: 54%;
+      top: 42%;
+      border-radius: 50% 50% 50% 0;
+      background: var(--red);
+      transform: rotate(-45deg);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.22);
+    }
+
+    .note {
+      max-width: 1220px;
+      margin: -28px auto 54px;
+      padding: 0 24px;
+      color: #5c655b;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 860px) {
+      .links {
+        display: none;
+      }
+
+      .draft-one .hero,
+      .draft-two .hero,
+      .draft-three .hero,
+      .advisor,
+      .contact-panel {
+        grid-template-columns: 1fr;
+        padding-left: 22px;
+        padding-right: 22px;
+      }
+
+      .product-strip,
+      .info-band,
+      .use-cases,
+      .order-flow {
+        grid-template-columns: 1fr 1fr;
+        margin-left: 22px;
+        margin-right: 22px;
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      .info-band {
+        margin: 0;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .nav {
+        padding: 18px 20px;
+      }
+
+      .draft-label {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .product-strip,
+      .info-band,
+      .use-cases,
+      .order-flow {
+        grid-template-columns: 1fr;
+      }
+
+      .sample-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="board-header">
+    <p class="eyebrow">Website draft board</p>
+    <h1>Sai Surya Plywoods</h1>
+    <p>Three homepage directions for a Hyderabad plywood distributor. The drafts use the business-card red/blue identity, but modernize it with wood textures, direct enquiry actions, and product-first sections.</p>
+    <div class="meta-strip">
+      <span>Phone: 9160908475</span>
+      <span>Email: saisuryaplywood2@gmail.com</span>
+      <span>Plywood / MDF / Nuwud / Particle Boards / PVC Laminates / Prelam</span>
+      <span>Address needs final confirmation</span>
+    </div>
+  </header>
+
+  <main class="draft-grid">
+    <section class="draft">
+      <div class="draft-label">
+        <strong>Draft 1 - Trade-Focused Distributor</strong>
+        <span>Best for contractors, carpenters, retailers, and bulk material enquiries</span>
+      </div>
+      <div class="site draft-one">
+        <nav class="nav">
+          <div class="brand"><span class="mark">S</span><span>Sai Surya Plywoods</span></div>
+          <div class="links"><span>Products</span><span>Bulk Orders</span><span>About</span><span>Location</span><a class="btn">Call 9160908475</a></div>
+        </nav>
+        <section class="hero">
+          <div>
+            <p class="eyebrow">Hyderabad plywood distributor</p>
+            <h2>Plywood, laminates & panel materials supplied fast.</h2>
+            <p>Sai Surya Plywoods helps carpenters, contractors, builders, and homeowners source dependable plywood, MDF, particle boards, PVC laminates, sheets, Nuwud, and Prelam.</p>
+            <div class="actions">
+              <a class="btn">Call for Quote</a>
+              <a class="btn secondary">WhatsApp Enquiry</a>
+            </div>
+          </div>
+          <div class="wood-stack" aria-label="Plywood stack visual"></div>
+        </section>
+        <section class="product-strip">
+          <div>Plywood</div>
+          <div>M.D.F.</div>
+          <div>Nuwud</div>
+          <div>Particle Boards</div>
+          <div>PVC Laminates</div>
+          <div>Prelam</div>
+          <div>Sheets</div>
+        </section>
+        <section class="info-band">
+          <div><strong>Bulk Friendly</strong><span>Material support for contractors, furniture teams, and interior work.</span></div>
+          <div><strong>Quick Quote</strong><span>Share size, grade, quantity, and delivery area for faster pricing.</span></div>
+          <div><strong>Founder-Led</strong><span>Proprietor Sai Kumar brings direct customer support to enquiries.</span></div>
+          <div><strong>Local Supply</strong><span>Hyderabad-based source for everyday plywood and surface materials.</span></div>
+        </section>
+      </div>
+    </section>
+
+    <section class="draft">
+      <div class="draft-label">
+        <strong>Draft 2 - Premium Interior Materials</strong>
+        <span>Best for homeowners, interior designers, architects, and modular furniture buyers</span>
+      </div>
+      <div class="site draft-two">
+        <nav class="nav">
+          <div class="brand"><span class="mark">S</span><span>Sai Surya</span></div>
+          <div class="links"><span>Materials</span><span>Applications</span><span>Guidance</span><span>Visit</span><a class="btn">Explore Products</a></div>
+        </nav>
+        <section class="hero">
+          <div>
+            <p class="eyebrow">Plywoods and interior surfaces</p>
+            <h2>Build better interiors with quality materials.</h2>
+            <p>A polished buying experience for plywood, MDF, particle boards, laminates, sheets, and pre-laminated materials used in wardrobes, kitchens, offices, and commercial fit-outs.</p>
+            <div class="actions">
+              <a class="btn">Get Material Guidance</a>
+              <a class="btn secondary">View Range</a>
+            </div>
+          </div>
+          <div class="gallery-wrap">
+            <div class="sample-grid">
+              <div class="sample"></div>
+              <div class="sample"></div>
+              <div class="sample"></div>
+              <div class="sample"></div>
+              <div class="sample"></div>
+              <div class="sample"></div>
+            </div>
+          </div>
+        </section>
+        <section class="use-cases">
+          <div class="case-card">Wardrobes</div>
+          <div class="case-card">Kitchens</div>
+          <div class="case-card">Offices</div>
+          <div class="case-card">Commercial Fit-Outs</div>
+        </section>
+        <section class="advisor">
+          <div>
+            <h3>Choose the right board for the job.</h3>
+            <p>Use the website to make enquiries easier: material type, use case, finish preference, quantity, and location can all be collected before the first call.</p>
+          </div>
+          <div>
+            <h3>Designed to feel established.</h3>
+            <p>This direction keeps the card's red identity but adds premium wood, ivory, and deep brown tones for a showroom-like web presence.</p>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="draft">
+      <div class="draft-label">
+        <strong>Draft 3 - Local Trusted Supplier</strong>
+        <span>Best for Google Maps visitors, nearby customers, and phone-first enquiries</span>
+      </div>
+      <div class="site draft-three">
+        <nav class="nav">
+          <div class="brand"><span class="mark">S</span><span>Sai Surya Plywoods</span></div>
+          <div class="links"><span>Products</span><span>How to Order</span><span>Address</span><a class="btn">Get Directions</a></div>
+        </nav>
+        <section class="hero">
+          <div>
+            <p class="eyebrow">Nearby plywood distributor</p>
+            <h2>Your local source for plywood and boards in Hyderabad.</h2>
+            <p>Call, WhatsApp, or visit Sai Surya Plywoods for plywood, MDF, Nuwud, particle boards, PVC laminates, sheets, and Prelam for home and contractor requirements.</p>
+            <div class="actions">
+              <a class="btn">Call Now</a>
+              <a class="btn secondary">Open Map</a>
+            </div>
+          </div>
+          <aside class="quick-card">
+            <h3>Quick Details</h3>
+            <div>Phone: 9160908475</div>
+            <div>Email: saisuryaplywood2@gmail.com</div>
+            <div>Proprietor: Sai Kumar</div>
+            <div>Final address to confirm</div>
+          </aside>
+        </section>
+        <section class="order-flow">
+          <div class="step"><b>1</b><strong>Share Requirement</strong><span>Send material, thickness, grade, finish, and quantity.</span></div>
+          <div class="step"><b>2</b><strong>Check Availability</strong><span>The store confirms options and pricing for your requirement.</span></div>
+          <div class="step"><b>3</b><strong>Visit or Arrange</strong><span>Collect from store or discuss local delivery support.</span></div>
+        </section>
+        <section class="contact-panel">
+          <div>
+            <h3>Easy to find, easy to contact.</h3>
+            <p>Final map embed should use the confirmed address. The site should also connect to Google Business Profile, phone, WhatsApp, and email.</p>
+          </div>
+          <div class="map-box" aria-label="Map placeholder"></div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <p class="note">Recommendation: choose Draft 1 as the base and add the material gallery from Draft 2. It keeps the site practical for trade buyers while making the brand feel modern and trustworthy.</p>
+</body>
+</html>
