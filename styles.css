@@ -1066,6 +1066,10 @@ address {
     padding: 26px;
   }
 
+  .product-card.horizontal {
+    padding: 0;
+  }
+
   .steps strong {
     margin-bottom: 8px;
   }
@@ -2238,21 +2242,21 @@ address {
    ============================================================ */
 @media (max-width: 960px) {
   .product-card.horizontal {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+    padding: 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
   
   .product-media-panel {
-    min-height: auto;
-  }
-  
-  .product-visual-placeholder {
-    border-right: 0;
-    border-bottom: 1px solid rgba(245, 230, 200, 0.08);
-    padding: 30px 20px;
+    display: none;
   }
   
   .product-info-panel {
     padding: 24px;
+    width: 100%;
+    box-sizing: border-box;
   }
   
   .product-title-large {
@@ -2279,18 +2283,53 @@ address {
     gap: 10px;
   }
   
+  .product-info-panel {
+    padding: 16px;
+  }
+  
+  .product-desc-large {
+    font-size: 13.5px;
+    line-height: 1.55;
+    white-space: normal;
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+  
   .product-card-actions {
     flex-direction: column;
     align-items: stretch;
     gap: 10px;
+    width: 100%;
   }
   
   .product-card-actions .button {
-    width: 100%;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    flex: none !important;
+    min-height: 48px !important;
+    padding: 12px 20px !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    box-sizing: border-box !important;
+    white-space: nowrap !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    text-transform: none !important;
   }
   
   .product-card-actions .button.whatsapp {
-    width: 100%;
-    min-width: 0;
+    background: var(--whatsapp) !important;
+    border: 1px solid var(--whatsapp) !important;
+    color: #ffffff !important;
+  }
+  
+  .product-card-actions .button.outline {
+    background: transparent !important;
+    border: 1px solid var(--text) !important;
+    color: var(--text) !important;
   }
 }
