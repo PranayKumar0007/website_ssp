@@ -2250,7 +2250,54 @@ address {
   }
   
   .product-media-panel {
-    display: none;
+    display: flex;
+    height: 180px;
+    width: 100%;
+    overflow: hidden;
+    border-right: 0;
+    border-bottom: 1px solid rgba(245, 230, 200, 0.1);
+  }
+  
+  .product-brand-showcase {
+    height: 100%;
+    border-right: 0;
+  }
+  
+  .brand-quality-strip {
+    padding: 8px 16px;
+  }
+  
+  .brand-visual-center {
+    padding: 8px 16px;
+    gap: 4px;
+  }
+  
+  .brand-product-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 0;
+  }
+  
+  .brand-product-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .brand-monogram {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+  }
+  
+  .brand-product-name {
+    font-size: 18px;
+  }
+  
+  .brand-product-sub {
+    font-size: 9px;
+  }
+  
+  .brand-bottom-rule {
+    padding: 8px 16px;
   }
   
   .product-info-panel {
@@ -2269,6 +2316,21 @@ address {
 }
 
 @media (max-width: 600px) {
+  .hero-badge {
+    border: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    margin-bottom: 16px !important;
+    font-size: 11px !important;
+    letter-spacing: 0.12em !important;
+    line-height: 1.4 !important;
+    white-space: normal !important;
+    display: block !important;
+    width: 100% !important;
+    box-shadow: none !important;
+  }
+
   .form-row {
     grid-template-columns: 1fr;
     gap: 14px;
